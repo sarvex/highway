@@ -195,7 +195,7 @@ endif()  # !MSVC
 add_library(hwy STATIC ${HWY_SOURCES})
 target_compile_options(hwy PRIVATE ${HWY_FLAGS})
 set_property(TARGET hwy PROPERTY POSITION_INDEPENDENT_CODE ON)
-target_include_directories(hwy PUBLIC ${CMAKE_CURRENT_LIST_DIR})
+target_include_directories(hwy PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)
 
 add_library(hwy_contrib STATIC ${HWY_CONTRIB_SOURCES})
 target_compile_options(hwy_contrib PRIVATE ${HWY_FLAGS})
