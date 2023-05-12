@@ -65,8 +65,13 @@ def write_files(file, data):
         md_dir = os.path.join(os.getcwd(), 'g3doc')
         if not os.path.isdir(ext_dir):
             os.mkdir(ext_dir)
-        ext_file = os.path.join(ext_dir , os.path.splitext(os.path.basename(file))[0] + "." + extension)
-        md_file = os.path.join(md_dir , os.path.splitext(os.path.basename(file))[0] + ".md")
+        ext_file = os.path.join(
+            ext_dir,
+            f"{os.path.splitext(os.path.basename(file))[0]}.{extension}",
+        )
+        md_file = os.path.join(
+            md_dir, f"{os.path.splitext(os.path.basename(file))[0]}.md"
+        )
         print(f'writing {ext_file}')
         if os.path.exists(ext_file):
             os.unlink(ext_file)
